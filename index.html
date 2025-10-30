@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,55 @@
     <title>todols</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <h1>TODo List</h1>
+    </header>
+    <div class="main">
+      <div class="sidebar">
+        <h3>Projects</h3>
+        <div class="projects">
+          <button class="btn prj-button">Default</button>
+          <button class="btn prj-button">Add Project</button>
+          <div class="prj-form">
+            <form action="" id="form1">
+              <label for="project-name">Project name</label>
+              <input type="text" id="project-name" name="project-name" />
+              <div class="submit-prj-div">
+                <input type="submit" value="ok" />
+                <button class="btn cancel">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="tasksection">
+        <h3>Tasks</h3>
+        <div class="tasks">
+          <p>Task</p>
+          <button class="btn task-button">Add Task</button>
+          <div class="task-form">
+            <form action="" id="form2">
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="title" required />
+              <label for="description">Description:</label>
+              <input type="text" id="description" name="description" required />
+              <label for="due-date">Due Date</label>
+              <input type="date" id="due-date" name="due-date" required />
+              <label for="priority">Priority:</label>
+              <select name="priority" id="priority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              <div class="submit-task-div">
+                <input type="submit" value="Ok" />
+                <button class="btn cancel">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
