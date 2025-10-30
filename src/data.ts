@@ -1,5 +1,4 @@
-const taskForm = document.getElementById("form2") as HTMLFormElement;
-const prjctForm = document.getElementById("form1") as HTMLFormElement;
+import { newPrjBtn, newTskDsp } from "./disp";
 
 class MyTask {
   title: string;
@@ -54,19 +53,17 @@ primary.push(task);
 
 // Forms
 
-function handleProjectEntry(event: SubmitEvent) {
+export function handleProjectEntry(event: SubmitEvent) {
   event.preventDefault();
   const newPrj = (document.getElementById("project-name") as HTMLInputElement)
     .value;
   project.setActiveArray(newPrj);
-  prjctForm.reset();
+  newPrjBtn(newPrj);
 }
-
-prjctForm.addEventListener("submit", handleProjectEntry);
 
 // primary
 
-function handleTaskEntry(event: SubmitEvent) {
+export function handleTaskEntry(event: SubmitEvent) {
   event.preventDefault();
   const taskTitle = (document.getElementById("title") as HTMLInputElement)
     .value;
@@ -84,12 +81,8 @@ function handleTaskEntry(event: SubmitEvent) {
     taskDueDate,
     taskPriority
   );
-  // console.log(task);
-  // primary.push(task);
   project.addValueToActiveArray(task);
-  taskForm.reset();
+  newTskDsp();
 }
-
-taskForm.addEventListener("submit", handleTaskEntry);
 
 export { primary };

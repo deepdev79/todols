@@ -1,7 +1,21 @@
 import "./style.css";
-import { primary } from "./data";
+import { primary, handleProjectEntry, handleTaskEntry } from "./data";
 import { dispPrjForm, hidePrjForm, dispTskForm, hideTskForm } from "./disp";
 console.log(primary);
+
+const taskForm = document.getElementById("form2") as HTMLFormElement;
+const prjctForm = document.getElementById("form1") as HTMLFormElement;
+
+taskForm.addEventListener("submit", (event: SubmitEvent) => {
+  handleTaskEntry(event);
+  taskForm.reset();
+  hideTskForm();
+});
+prjctForm.addEventListener("submit", (event: SubmitEvent) => {
+  handleProjectEntry(event);
+  prjctForm.reset();
+  hidePrjForm();
+});
 
 const addPrjBtn = document.getElementById("add-prj") as HTMLButtonElement;
 const canPrjBtn = document.getElementById("cancel-prj") as HTMLButtonElement;

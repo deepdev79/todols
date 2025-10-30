@@ -1,6 +1,7 @@
 const prjDiv = document.querySelector(".prj-form") as HTMLDivElement;
 const tskDiv = document.querySelector(".task-form") as HTMLButtonElement;
-
+const appndBtn = document.querySelector(".prj-button") as HTMLButtonElement;
+const appndTsk = document.querySelector(".tasks") as HTMLDivElement;
 //display/hide Project forms
 function dispPrjForm(): void {
   prjDiv.classList.remove("hidden");
@@ -19,3 +20,19 @@ function hideTskForm(): void {
 }
 
 export { dispPrjForm, hidePrjForm, dispTskForm, hideTskForm };
+
+//create button for new project
+
+export function newPrjBtn(btnName: string): void {
+  const btn = document.createElement("button") as HTMLButtonElement;
+  btn.classList.add("btn");
+  btn.classList.add("prj-button");
+  btn.textContent = btnName;
+  appndBtn.insertAdjacentElement("afterend", btn);
+}
+
+export function newTskDsp(): void {
+  const p = document.createElement("p") as HTMLParagraphElement;
+  p.textContent = "Test";
+  appndTsk.insertAdjacentElement("afterbegin", p);
+}

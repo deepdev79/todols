@@ -39,7 +39,8 @@ header {
   gap: 10px;
 }
 
-.prj-button {
+.prj-button,
+#add-prj {
   width: 50%;
 }
 
