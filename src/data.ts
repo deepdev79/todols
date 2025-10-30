@@ -1,4 +1,5 @@
 const taskForm = document.getElementById("form2") as HTMLFormElement;
+const prjctForm = document.getElementById("form1") as HTMLFormElement;
 
 class MyTask {
   title: string;
@@ -19,10 +20,21 @@ class MyTask {
   }
 }
 
-const tasks: MyTask[] = [];
+const primary: MyTask[] = [];
 
 const task = new MyTask("sleep", "zzzz", "24 oct", "high");
-tasks.push(task);
+primary.push(task);
+
+// Forms
+
+function handleProjectEntry(event: SubmitEvent) {
+  event.preventDefault();
+  const newPrj = document.getElementById("project-name") as HTMLInputElement;
+}
+
+prjctForm.addEventListener("submit", handleProjectEntry);
+
+// primary
 
 function handleTaskEntry(event: SubmitEvent) {
   event.preventDefault();
@@ -42,11 +54,11 @@ function handleTaskEntry(event: SubmitEvent) {
     taskPriority.value
   );
   console.log(task);
-  tasks.push(task);
+  primary.push(task);
   taskForm.reset();
-  // console.log(tasks);
+  // console.log(primary);
 }
 
 taskForm.addEventListener("submit", handleTaskEntry);
 
-export { tasks };
+export { primary };
