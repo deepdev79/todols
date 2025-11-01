@@ -24,6 +24,7 @@ export { dispPrjForm, hidePrjForm, dispTskForm, hideTskForm };
 //create button for new project
 
 export function newPrjBtn(btnName: string): void {
+  if (btnName === "") return;
   const btn = document.createElement("button") as HTMLButtonElement;
   btn.classList.add("btn");
   btn.classList.add("prj-button");
@@ -38,6 +39,7 @@ export function newTskDsp(
   priority: string
 ): void {
   const p = document.createElement("p") as HTMLParagraphElement;
+  p.classList.add("task-style");
   p.textContent = `${title}.......${description}..........${dueDate}..........${priority}`;
   appndTsk.insertAdjacentElement("afterbegin", p);
 }

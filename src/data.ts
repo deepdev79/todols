@@ -40,7 +40,6 @@ class ProjectsArray {
 
   addValueToActiveArray(value: object) {
     this.arrays[this.activeArrayName].push(value);
-    console.log(this.arrays[this.activeArrayName]);
   }
 
   getPrjList() {
@@ -51,9 +50,6 @@ class ProjectsArray {
 const project = new ProjectsArray("Default");
 
 const primary: MyTask[] = [];
-
-const task = new MyTask("sleep", "zzzz", "24 oct", "high");
-primary.push(task);
 
 // Forms
 
@@ -100,8 +96,12 @@ allPrjBtn.addEventListener("click", (event: MouseEvent) => {
   if (actPrj in cmp) {
     const lst = cmp[actPrj];
     lst.forEach((item) => {
-      console.log(item);
-      newTskDsp(item.title, item.description, item.dueDate, item.priority);
+      newTskDsp(
+        (item as any).title,
+        (item as any).description,
+        (item as any).dueDate,
+        (item as any).priority
+      );
     });
   }
 });

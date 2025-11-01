@@ -1,7 +1,6 @@
 import "./style.css";
-import { primary, handleProjectEntry, handleTaskEntry } from "./data";
+import { handleProjectEntry, handleTaskEntry } from "./data";
 import { dispPrjForm, hidePrjForm, dispTskForm, hideTskForm } from "./disp";
-console.log(primary);
 
 const taskForm = document.getElementById("form2") as HTMLFormElement;
 const prjctForm = document.getElementById("form1") as HTMLFormElement;
