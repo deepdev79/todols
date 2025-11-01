@@ -1,4 +1,4 @@
-import { newPrjBtn, newTskDsp } from "./disp";
+import { newPrjBtn, newTskDsp, popNewTsks } from "./disp";
 
 class MyTask {
   title: string;
@@ -42,9 +42,13 @@ class ProjectsArray {
     this.arrays[this.activeArrayName].push(value);
     console.log(this.arrays[this.activeArrayName]);
   }
+
+  getPrjList() {
+    return this.arrays;
+  }
 }
 
-const project = new ProjectsArray("default");
+const project = new ProjectsArray("Default");
 
 const primary: MyTask[] = [];
 
@@ -82,7 +86,24 @@ export function handleTaskEntry(event: SubmitEvent) {
     taskPriority
   );
   project.addValueToActiveArray(task);
-  newTskDsp();
+  newTskDsp(taskTitle, taskDescription, taskDueDate, taskPriority);
 }
+
+//swithcing projects
+
+const allPrjBtn = document.getElementById("prj-buttons") as HTMLButtonElement;
+
+allPrjBtn.addEventListener("click", (event: MouseEvent) => {
+  const actPrj = (event.target as HTMLButtonElement).textContent;
+  const cmp = project.getPrjList();
+  popNewTsks();
+  if (actPrj in cmp) {
+    const lst = cmp[actPrj];
+    lst.forEach((item) => {
+      console.log(item);
+      newTskDsp(item.title, item.description, item.dueDate, item.priority);
+    });
+  }
+});
 
 export { primary };

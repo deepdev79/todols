@@ -1,7 +1,7 @@
 const prjDiv = document.querySelector(".prj-form") as HTMLDivElement;
 const tskDiv = document.querySelector(".task-form") as HTMLButtonElement;
 const appndBtn = document.querySelector(".prj-button") as HTMLButtonElement;
-const appndTsk = document.querySelector(".tasks") as HTMLDivElement;
+const appndTsk = document.querySelector(".tasksB") as HTMLDivElement;
 //display/hide Project forms
 function dispPrjForm(): void {
   prjDiv.classList.remove("hidden");
@@ -31,8 +31,21 @@ export function newPrjBtn(btnName: string): void {
   appndBtn.insertAdjacentElement("afterend", btn);
 }
 
-export function newTskDsp(): void {
+export function newTskDsp(
+  title: string,
+  description: string,
+  dueDate: string,
+  priority: string
+): void {
   const p = document.createElement("p") as HTMLParagraphElement;
-  p.textContent = "Test";
+  p.textContent = `${title}.......${description}..........${dueDate}..........${priority}`;
   appndTsk.insertAdjacentElement("afterbegin", p);
+}
+
+//Populate full task list when project button changes
+
+export function popNewTsks() {
+  while (appndTsk?.firstChild) {
+    appndTsk.removeChild(appndTsk.firstChild);
+  }
 }

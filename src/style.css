@@ -32,7 +32,8 @@ header {
   margin-top: 20px;
 }
 
-.projects {
+.projects,
+#prj-buttons {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
